@@ -70,8 +70,6 @@ void createClient(int id,int myPort,int peerPort){
     sprintf(buffer, "hello %d", id);
     sendto(socketFd, buffer, strlen(buffer), 0, (struct sockaddr *) &peer_Addr, sizeof(struct sockaddr_in));
 
-    //flush(socketFd);
-	
 }
 
 void serial(int clinetNum){
