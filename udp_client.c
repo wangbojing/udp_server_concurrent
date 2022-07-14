@@ -26,14 +26,14 @@ void createClient(int id,int myPort,int peerPort){
       
     int socketFd;
     struct sockaddr_in peer_Addr;
-    peer_Addr.sin_family = PF_INET;//使用IPv4协议
-    peer_Addr.sin_port = htons(peerPort);//设置接收方端口号
-    peer_Addr.sin_addr.s_addr = inet_addr("192.168.233.128"); //设置接收方IP 
+    peer_Addr.sin_family = PF_INET;
+    peer_Addr.sin_port = htons(peerPort);
+    peer_Addr.sin_addr.s_addr = inet_addr("192.168.233.128");
 
     struct sockaddr_in self_Addr;
-    self_Addr.sin_family = PF_INET;//使用IPv4协议
-    self_Addr.sin_port = htons(myPort);//设置接收方端口号
-    self_Addr.sin_addr.s_addr = inet_addr("0.0.0.0"); //设置接收方IP 
+    self_Addr.sin_family = PF_INET;
+    self_Addr.sin_port = htons(myPort);
+    self_Addr.sin_addr.s_addr = inet_addr("0.0.0.0"); 
     
     if ((socketFd = socket(PF_INET, SOCK_DGRAM| SOCK_CLOEXEC, 0)) == -1) {
         perror("child socket");
@@ -82,7 +82,7 @@ void serial(int clinetNum){
 int main(int argc, char * argv[])
 {
 
-	serial(1024);//多线程并发测试udp服务，丢包严重，会丢包20%~30%，同时udp connect不稳定
+	serial(1024);
 	
     printf("serial success\n");
     return 0;
