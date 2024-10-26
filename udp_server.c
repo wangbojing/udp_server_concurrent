@@ -156,7 +156,7 @@ int main(int argc, char **argv)
  
     while (1) {
       
-        nfds = epoll_wait(kdpfd, events, 10000, -1);
+        nfds = epoll_wait(kdpfd, events, MAXEPOLLSIZE, -1);
         if (nfds == -1) {
             perror("epoll_wait");
             break;
